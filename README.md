@@ -16,11 +16,11 @@ Pull the microservice from DockerHub
 sudo docker pull singhprasandeep/ubuntu-node-python
 
 To Run node and express microservice : Use :  
-sudo docker run -d -w /microservice -p 9000:3000 singhprasandeep/ubuntu-node-python npm start
+sudo docker run -d -w /microservice -p 9000:3000 singhprasandeep/ubuntu-node-python npm start  
 Go to localhost:9000/api/sayhello to check
 
 To Run python microservice : Use :  
-sudo docker run -d -w /python-microservice -p 5000:5000 singhprasandeep/ubuntu-node-python connexion run my_api.yaml -v
+sudo docker run -d -w /python-microservice -p 5000:5000 singhprasandeep/ubuntu-node-python connexion run my_api.yaml -v  
 Go to localhost:5000/greeting to check
 
 
