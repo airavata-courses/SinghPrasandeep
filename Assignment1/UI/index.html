@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<button id="java">Hit For Java Server</button>
+<button id ="node">Hit For Node Server</button>
+<button id="python">Hit For Python Server</button>
+<p id="response"> </p>
+<script>
+$(document).ready(function(){
+    $("#java").click(function(){
+        
+        $.ajax({url: "http://localhost:8080/hi", success: function(result){
+        document.getElementById('response').innerHTML = result;
+        console.log(result)
+    }});
+    });
+
+    $("#node").click(function(){
+        
+        $.ajax({url: "http://localhost:3000/api/sayhello", success: function(result){
+        document.getElementById('response').innerHTML = result.msg;
+        console.log(result)
+    }});
+    });
+
+    $("#python").click(function(){
+        
+        $.ajax({url: "http://localhost:5000/greeting ", success: function(result){
+      //  alert(result);
+        document.getElementById('response').innerHTML = result;
+        console.log(result)
+    }});
+    });
+
+    // $.get("http://localhost:9000/api/sayhello", function(response){
+    //     console.log("ajax");
+    //     document.write(JSON.stringify(response));
+    // })
+
+});
+
+
+
+</script>
+</body>
+</html>
