@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RestController
 public class Application {
 
-	@CrossOrigin(origins = "*")
+    @CrossOrigin(origins = "*")
     @RequestMapping("/hi")
     public String home() {
-        return "Hello Docker World from Java";
+        return "Hello Docker from Java!";
     }
 
     public static void main(String[] args) {
