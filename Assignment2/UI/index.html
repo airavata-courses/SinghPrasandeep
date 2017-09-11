@@ -45,7 +45,13 @@ $(document).ready(function(){
         }});
     });
 
+    $("#receive-node").click(function(){
 
+        $.ajax({url: "http://localhost:3000/api/receive", success: function(result){
+        document.getElementById('response4').innerHTML = result.msg;
+        console.log(result)
+       }});
+    });
     $("#send-python").click(function(){
         var msg = $("#python-msg").val();
 	    console.log("Message to be sent : "+msg);
