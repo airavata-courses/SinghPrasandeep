@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+
+<button id="java">Hit For Java Server</button>
+<button id ="node">Hit For Node Server</button>
+<div>
+	<input type ="text" placeholder="Enter your message" id="python-msg">
+	<button id="python">Send From Python</button>
+        <p id="response1"> </p>
+<div>
+<button id="communicate">Hit For Communication</button>
+<p id="response2"> </p>
+
+<script>
+$(document).ready(function(){
+    $("#java").click(function(){
+        $.ajax({url: "http://localhost:8080/hi", success: function(result){
+            document.getElementById('response1').innerHTML = result;
+            console.log(result)
+         }});
+    });
+
+    $("#node").click(function(){
+        
+        $.ajax({url: "http://localhost:3000/api/sayhello", success: function(result){
+        document.getElementById('response1').innerHTML = result.msg;
+        console.log(result)
+    }});
+    });
+
+    $("#python").click(function(){
+        var msg = $("#python-msg").val();
+	console.log("Message to be sent : "+msg);
+        $.ajax({url: "http://localhost:5000/greeting", data:{text: msg}, type:"GET", success: function(result){
+        document.getElementById('response1').innerHTML = result;
+        console.log(result)
+    }});
+    });
+
+    $("#communicate").click(function(){
+        
+        $.ajax({url: "http://localhost:5000/call_java_node ", success: function(result){
+      //  alert(result);
+        document.getElementById('response2').innerHTML = result;
+        console.log(result)
+    }});
+    });
+
+});
+
+
+
+</script>
+</body>
+</html>
