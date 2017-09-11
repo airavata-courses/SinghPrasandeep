@@ -8,14 +8,22 @@
 
 
 <button id="java">Hit For Java Server</button>
-<button id ="node">Hit For Node Server</button>
 <div>
 	<input type ="text" placeholder="Enter your message" id="python-msg">
 	<button id="send-python">Send From Python</button>
 	<button id="receive-python">Receive</button>
 	<p id="response1"> </p>
-        <p id="response2"> </p>
+    <p id="response2"> </p>
 <div>
+<div>
+    <input type ="text" placeholder="Enter your message" id="node-msg">
+    <button id="send-node">Send From Node</button>
+    <button id="receive-node">Receive</button>
+    <p id="response3"> </p>
+    <p id="response4"> </p>
+<div>
+
+
 <button id="communicate">Hit For Communication</button>
 
 <script>
@@ -27,21 +35,24 @@ $(document).ready(function(){
          }});
     });
 
-    $("#node").click(function(){
-        
-        $.ajax({url: "http://localhost:3000/api/sayhello", success: function(result){
-        document.getElementById('response1').innerHTML = result.msg;
+
+    $("#send-node").click(function(){
+        var msg = $("#node-msg").val();
+        console.log("Message to be sent : "+msg);
+        $.ajax({url: "http://localhost:3000/api/sayhello", data:{text: msg}, type:"GET", success: function(result){
+        document.getElementById('response3').innerHTML = result.msg;
         console.log(result)
-    }});
+        }});
     });
+
 
     $("#send-python").click(function(){
         var msg = $("#python-msg").val();
-	console.log("Message to be sent : "+msg);
+	    console.log("Message to be sent : "+msg);
         $.ajax({url: "http://localhost:5000/greeting", data:{text: msg}, type:"GET", success: function(result){
         document.getElementById('response1').innerHTML = result;
         console.log(result)
-    }});
+        }});
     });
 
     $("#receive-python").click(function(){
