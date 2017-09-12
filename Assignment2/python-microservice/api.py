@@ -37,23 +37,14 @@ def receive_from_queue():
     else:
         channel.basic_ack(delivery_tag=method_frame.delivery_tag)
         connection.close()
-	print("Received message :"+body)
+        print("Received message :"+body)
         return "Received message ------------> "+body
-    # channel.basic_consume(callback, queue='hello', no_ack=True)
-    # print(' [x] Waiting for messages. To exit press  CTRL+C')
-    # global received_msg
-    # received_msg = channel.start_consuming()
-    # channel.stop_consuming()
-    # print("Messages Consumed : "+msg)
-    # global received_msg
-    # return "Received message ------------> "+received_msg
-
+ 
 @app.route("/greeting", methods=['GET', 'POST'])
 def say_hello():
 	message = str(request.args.get('text'))
 	print("Sent Message : "+message)
-	# message = "Hello RabbitMQ from Python"
-        ack = send_to_queue(message)
+	ack = send_to_queue(message)
 	return ack + "-------------> " + message
 
 @app.route("/call_java_node")
