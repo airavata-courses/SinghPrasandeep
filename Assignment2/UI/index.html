@@ -27,13 +27,13 @@
 <button id="communicate">Hit For Communication</button>
 
 <script>
-$(document).ready(function(){
-    $("#java").click(function(){
-        $.ajax({url: "http://localhost:8080/hi", success: function(result){
-            document.getElementById('response1').innerHTML = result;
-            console.log(result)
-         }});
-    });
+// $(document).ready(function(){
+//     $("#java").click(function(){
+//         $.ajax({url: "http://localhost:8080/hi", success: function(result){
+//             document.getElementById('response1').innerHTML = result;
+//             console.log(result)
+//          }});
+//     });
 
 
     $("#send-node").click(function(){
@@ -69,14 +69,14 @@ $(document).ready(function(){
     }});
     });
 
-    $("#communicate").click(function(){
+    // $("#communicate").click(function(){
         
-        $.ajax({url: "http://localhost:5000/call_java_node ", success: function(result){
-      //  alert(result);
-        document.getElementById('response2').innerHTML = result;
-        console.log(result)
-    }});
-    });
+    //     $.ajax({url: "http://localhost:5000/call_java_node ", success: function(result){
+    //   //  alert(result);
+    //     document.getElementById('response2').innerHTML = result;
+    //     console.log(result)
+    // }});
+    // });
 
 });
 
