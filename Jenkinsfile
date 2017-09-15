@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'python --version'
+                sh 'sudo docker run -d --hostname rabbitRabbit --name rabRabbit -p 15672:15672 -p 5672:5672 -p 5671:5671 rabbitmq:3-management
+'
             }
         }
     }
