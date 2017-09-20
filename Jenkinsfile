@@ -11,8 +11,7 @@ node {
 	
 	stage('Deploy') {
 		steps {
-			sh 'sudo docker stop msn'
-			sh 'sudo docker rm msn'
+			sh 'sudo docker ps -q --filter "name=msn" | grep -q . && sudo docker stop msn && sudo docker rm -fv msn'
 		}
 		def c = docker.image('singhprasandeep/node-dockerized').run('-p 3000:3000 --name msn')
 	}
