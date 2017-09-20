@@ -10,8 +10,7 @@ node {
 
 	stage('Deploy') {
 		steps {
-			sh 'sudo docker stop gateway'
-			sh 'sudo docker rm gateway'
+			sh 'sudo docker ps -q --filter "name=gateway" | grep -q . && sudo docker stop gateway && sudo docker rm -fv gateway'
 		}
 		def c = docker.image('singhprasandeep/gateway-dockerized').run('-p 8000:8000 --name gateway')
 	}
