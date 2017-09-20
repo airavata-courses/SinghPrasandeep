@@ -10,8 +10,7 @@ node {
 
 	stage('Deploy') {
 		steps {
-			sh 'sudo docker stop msp'
-			sh 'sudo docker rm msp'
+			sh 'sudo docker ps -q --filter "name=msp" | grep -q . && sudo docker stop msp && sudo docker rm -fv msp'
 		}
 		def c = docker.image('singhprasandeep/python-dockerized').run('-p 5000:5000 --name msp')
 	}
