@@ -5,7 +5,7 @@ node {
 	}
 
 	stage('Build Image') {
-		app = docker.build("singhprasandeep/python-dockerized"
+		app = docker.build("singhprasandeep/python-dockerized")
 	}
 
 	stage('Deploy') {
