@@ -7,7 +7,7 @@ router.get('/sayhello', function(req, res, next) {
 	// console.log("Request contains :"+req)
 	var query = require('url').parse(req.url,true).query;
 	var msg_r = query.text;
-	amqp.connect('amqp://149.165.156.204', function(err, conn) {
+	amqp.connect('amqp://129.114.17.180', function(err, conn) {
 	conn.createChannel(function(err, ch) {
     		var q = 'hello';
     		//msg_r = 'Hello RabbitMQ World from Node!';
@@ -29,7 +29,7 @@ router.get('/receive', function(req, res, next) {
 	var msg_q = "";
 	var amqp = require('amqplib/callback_api');
 
-	amqp.connect('amqp://149.165.156.204', function(err, conn) {
+	amqp.connect('amqp://129.114.17.180', function(err, conn) {
   			conn.createChannel(function(err, ch) {
   				var q = 'hello';
 			   	//ch.assertQueue(q, {durable: true});
