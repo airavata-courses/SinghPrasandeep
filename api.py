@@ -11,7 +11,7 @@ received_msg = ""
 
 def send_to_queue(message):
 	credentials = pika.PlainCredentials('guest', 'guest')
-	parameters = pika.ConnectionParameters('149.165.156.204')
+	parameters = pika.ConnectionParameters('129.114.17.180')
 	connection = pika.BlockingConnection(parameters)
 	channel = connection.channel()
 	channel.queue_declare(queue='hello')
@@ -25,7 +25,7 @@ def callback(ch, method, properties, body):
 @app.route("/receive",methods=['GET', 'POST'])
 def receive_from_queue():
 	credentials = pika.PlainCredentials('guest', 'guest')
-	parameters = pika.ConnectionParameters('149.165.156.204')
+	parameters = pika.ConnectionParameters('129.114.17.180')
 	connection = pika.BlockingConnection(parameters)
 	channel  =  connection.channel()
 	channel.queue_declare(queue='hello')
@@ -48,8 +48,8 @@ def say_hello():
 
 @app.route("/call_java_node")
 def call_java_node():
-	r = requests.get("http://149.165.156.204:8080/hi")
-	s = requests.get("http://149.165.156.204:3000/api/sayhello")
+	r = requests.get("http://129.114.17.180:8080/hi")
+	s = requests.get("http://129.114.17.180:3000/api/sayhello")
 	return  "Response recieved from Java :: Response recieved from Node"
 
 if __name__ == '__main__':
