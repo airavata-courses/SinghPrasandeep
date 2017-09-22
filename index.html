@@ -39,7 +39,7 @@
     $("#send-node").click(function(){
         var msg = $("#node-msg").val();
         console.log("Message to be sent : "+msg);
-        $.ajax({url: "http://149.165.157.230:3000/api/sayhello", data:{text: msg}, type:"GET", success: function(result){
+        $.ajax({url: "http://129.114.17.180:3000/api/sayhello", data:{text: msg}, type:"GET", success: function(result){
         document.getElementById('response3').innerHTML = result.msg;
         console.log(result)
         }});
@@ -47,7 +47,7 @@
 
     $("#receive-node").click(function(){
 
-        $.ajax({url: "http://149.165.157.230:3000/api/receive", success: function(result){
+        $.ajax({url: "http://129.114.17.180:3000/api/receive", success: function(result){
         document.getElementById('response4').innerHTML = result.msg;
         console.log(result)
        }});
@@ -55,7 +55,7 @@
     $("#send-python").click(function(){
         var msg = $("#python-msg").val();
 	    console.log("Message to be sent : "+msg);
-        $.ajax({url: "http://149.165.157.230:5000/greeting", data:{text: msg}, type:"GET", success: function(result){
+        $.ajax({url: "http://129.114.17.180:5000/greeting", data:{text: msg}, type:"GET", success: function(result){
         document.getElementById('response1').innerHTML = result;
         console.log(result)
         }});
@@ -63,7 +63,7 @@
 
     $("#receive-python").click(function(){
 
-        $.ajax({url: "http://149.165.157.230:5000/receive", success: function(result){
+        $.ajax({url: "http://129.114.17.180:5000/receive", success: function(result){
         document.getElementById('response2').innerHTML = result;
         console.log(result)
     }});
